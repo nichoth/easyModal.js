@@ -79,15 +79,17 @@
 
                     if(o.transitionIn !== '' && o.transitionOut !== ''){
                         $modal.removeClass(o.transitionOut).addClass(o.transitionIn);
-                    }
+                    };
                     $modal.css({
-                        'display' : 'block',
+                        // 'display' : 'block',
                         'margin-left' : -($modal.outerWidth() / 2) + 'px',
                         'margin-top' : (parseInt(o.top, 10) > -1 ? 0 : -($modal.outerHeight() / 2)) + 'px',
                         'z-index': modalZ
                     });
+                    $modal.fadeIn();
 
-                    $overlay.css({'z-index': overlayZ, 'display': 'block'});
+                    $overlay.css({'z-index': overlayZ});
+                    $overlay.fadeIn();
 
                     if (o.onOpen && typeof o.onOpen === 'function') {
                         // onOpen callback receives as argument the modal window
